@@ -1,0 +1,221 @@
+:root {
+    --bg-root:        #F8FAFC;
+    --bg-card:        #FFFFFF;
+    --bg-output:      #F1F5F9;
+    --border-subtle:  #E2E8F0;
+    --border-focus:   #2563EB;
+    --accent-pri:     #2563EB;
+    --accent-sec:     #0EA5E9;
+    --accent-success: #10B981;
+    --text-main:      #0F172A;
+    --text-muted:     #64748B;
+    --text-dim:       #94A3B8;
+    --btn-erase:      #F1F5F9;
+    --btn-erase-hov:  #E2E8F0;
+    --btn-run:        #2563EB;
+    --btn-run-hov:    #1D4ED8;
+    --result-color:   #10B981;
+    --radius-lg:      20px;
+    --radius-md:      12px;
+    --radius-sm:      8px;
+    --shadow-card:    0 1px 3px rgba(15, 23, 42, 0.08),
+                      0 8px 24px rgba(15, 23, 42, 0.06);
+    --shadow-btn:     0 1px 2px rgba(37, 99, 235, 0.18);
+    --shadow-hover:   0 4px 12px rgba(37, 99, 235, 0.22);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-root);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: var(--text-main);
+}
+
+/* ─── Shell ─── */
+.app-shell {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+}
+
+/* ─── Header ─── */
+.app-header {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+.brand-icon {
+    font-size: 28px;
+    color: var(--accent-pri);
+    line-height: 1;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.app-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.app-subtitle {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+/* ─── Body ─── */
+.app-body {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ─── Drawing zone ─── */
+.drawing-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.zone-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    align-self: flex-start;
+}
+
+/* Borde sutil con acento azul al enfocar */
+.canvas-wrapper {
+    border-radius: var(--radius-md);
+    padding: 2px;
+    background: var(--border-subtle);
+    transition: background 0.2s ease;
+}
+
+.canvas-wrapper:hover {
+    background: var(--accent-sec);
+}
+
+canvas {
+    display: block;
+    background: #ffffff;
+    border-radius: 10px;
+    cursor: crosshair;
+    transition: transform 0.15s ease;
+}
+
+canvas:active {
+    transform: scale(1.004);
+}
+
+.zone-hint {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
+/* ─── Controls ─── */
+.control-bar {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.16s ease, transform 0.12s ease, box-shadow 0.16s ease;
+}
+
+.btn-icon {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.btn-secondary {
+    background-color: var(--btn-erase);
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+    background-color: var(--btn-erase-hov);
+    color: var(--text-main);
+    border-color: #CBD5E1;
+}
+
+.btn-primary {
+    background-color: var(--btn-run);
+    color: #fff;
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-run-hov);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* ─── Output panel ─── */
+.output-panel {
+    background-color: var(--bg-output);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 20px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.output-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.output-value {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: var(--result-color);
+}

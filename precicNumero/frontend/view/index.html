@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitSense — Reconocimiento Neural</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+
+        <header class="app-header">
+            <div class="brand-icon">◈</div>
+            <h1 class="app-title">DigitSense</h1>
+            <p class="app-subtitle">Red neuronal convolucional · MNIST</p>
+        </header>
+
+        <main class="app-body">
+
+            <section class="drawing-zone">
+                <span class="zone-label">Área de dibujo</span>
+                <div class="canvas-wrapper">
+                    <canvas id="canvas" width="280" height="280"></canvas>
+                </div>
+                <p class="zone-hint">Dibuja un dígito centrado y grande</p>
+            </section>
+
+            <section class="control-bar">
+                <button id="clear-btn" class="btn btn-secondary">
+                    <span class="btn-icon">⟳</span> Limpiar
+                </button>
+                <button id="predict-btn" class="btn btn-primary">
+                    <span class="btn-icon">◉</span> Analizar
+                </button>
+            </section>
+
+            <section class="output-panel">
+                <span class="output-label">Dígito detectado</span>
+                <div id="result" class="output-value">—</div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

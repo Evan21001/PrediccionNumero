@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.h5
+*.egg-info/
+.env
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
