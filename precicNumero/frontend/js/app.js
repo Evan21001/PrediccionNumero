@@ -18,7 +18,7 @@ renderCtx.strokeStyle = 'black';
 async function initializeClassifier() {
     outputDisplay.innerText = 'Cargando IA...';
     try {
-        digitClassifier = await tf.loadLayersModel('../../modelo_web/model.json');
+        digitClassifier = await tf.loadLayersModel('./modelo_web/model.json');
         outputDisplay.innerText = '—';
         console.log('Clasificador listo.');
     } catch (err) {
